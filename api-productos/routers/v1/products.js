@@ -1,7 +1,6 @@
-const method = require('../../src/controllers/products')
+const product = require('../../src/controllers/products');
 const router = require('express').Router();
 
+router.get('/:category', product.get);
 
 module.exports = router;
-
-router.get('/:category', method.get);
