@@ -1,5 +1,6 @@
 const product = require('../models/products');
 const httpStatusCodes = require('http-status');
+const chalk = require('chalk');
 
 exports.get = async (req, res) => {
   try {
@@ -13,7 +14,7 @@ exports.get = async (req, res) => {
 
     res.status(httpStatusCodes.OK).json(result);
   } catch (err) {
-    console.error(err);
+    console.error(chalk.red(err));
     res.writeHead(httpStatusCodes.INTERNAL_SERVER_ERROR);
   }
 

@@ -2,7 +2,9 @@ const request = require('request-promise');
 const $ = require('cheerio');
 const _ = require('lodash');
 const NodeCache = require('node-cache');
-const cache = new NodeCache();
+const chalk = require('chalk');
+
+const cache = new NodeCache({ stdTTL: 60 });
 
 const getURL = category => {
   let url = 'https://www.lider.cl/supermercado/category/';
@@ -56,17 +58,20 @@ exports.get = async (category = '') => {
 
   try {
     products = cache.get(url, true);
-    console.log('response from cache');
+    console.log(chalk.green(`Get url:${url} from cache`));
   } catch (err) {
+    console.log(chalk.gray('waiting for products...'));
+
     products = await request(url).then(html => {
       let linkTags = getLinkTags(html);
       let images = getImages(html);
 
+      console.log(chalk.gray('building products...'));
       return buildProducts(linkTags, images);
     });
 
-    console.log(`caching url: ${url}`);
     cache.set(url, products);
+    console.log(chalk.blue(`cached url: ${url}`));
   }
 
   return products;
