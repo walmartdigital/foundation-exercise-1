@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const port = process.env.API_PORT || 8080;
+const port = process.env.PORT || 8080;
 const products = require('./src/routers/v1/products');
 
 app.use(express.static(__dirname + '/public'));
