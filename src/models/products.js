@@ -1,6 +1,8 @@
 const request = require('request-promise');
 const $ = require('cheerio');
 const _ = require('lodash');
+const NodeCache = require('node-cache');
+const cache = new NodeCache();
 
 const getURL = category => {
   let url = 'https://www.lider.cl/supermercado/category/';
@@ -52,10 +54,20 @@ exports.get = async (category = '') => {
     return productos;
   }
 
-  return await request(url).then(html => {
-    let linkTags = getLinkTags(html);
-    let images = getImages(html);
+  try {
+    products = cache.get(url, true);
+    console.log('response from cache');
+  } catch (err) {
+    products = await request(url).then(html => {
+      let linkTags = getLinkTags(html);
+      let images = getImages(html);
 
-    return buildProducts(linkTags, images);
-  });
+      return buildProducts(linkTags, images);
+    });
+
+    console.log(`caching url: ${url}`);
+    cache.set(url, products);
+  }
+
+  return products;
 };
