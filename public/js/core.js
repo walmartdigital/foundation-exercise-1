@@ -12,7 +12,7 @@ let cleanProductList = () => {
 };
 
 let getProducts = categoria => {
-  let url = `http://localhost:3001/v1/products/${categoria}`;
+  let url = `/v1/products/${categoria}`;
 
   fetch(url, {
     method: 'GET',

@@ -5,7 +5,9 @@ const app = express();
 const bodyParser = require('body-parser');
 
 const port = process.env.API_PORT || 8080;
-const products = require('./routers/v1/products');
+const products = require('./src/routers/v1/products');
+
+app.use(express.static(__dirname + '/public'));
 
 //CORS Middleware
 app.use(function(req, res, next) {
