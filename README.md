@@ -4,14 +4,30 @@ At Walmart Digital, we are dedicated to disrupting the retail and e-commerce ind
 
 Exercise 1 provide a simple e commerce landing page as a tool for the workshop "How Walmart digital works".
 
-### Running exercise
+# Running exercise
 
-Clone this repo and run `npm start`
+## Prerequisites
 
-For continuos operation throught the development process run `npm run dev`
+You must have nodejs installed on your laptop computer. You can find installation packages and guides for your platform here: https://nodejs.org/es/
 
-To run in "production" mode run `npm start`
+You musta have an code editor installed as well, we encourage to use Visual Studio Code. You can find installation packages and guides for your platform here: https://code.visualstudio.com/
+
+## Execute
+
+Once yo had cloned this repository:
+
+- Install dependencies `$ npm install`
+
+- Executing in dev mode `npm run dev`
 
 ---
+
+# CI/CD
+
+You may take a look at [Setup Guide](SETUP.md)
+
+---
+
+**Happy coding!**
 
 Walmart Chile with <3
