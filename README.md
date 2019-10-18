@@ -10,11 +10,11 @@ Exercise 1 provide a simple e commerce landing page as a tool for the workshop "
 
 You must have nodejs installed on your laptop computer. You can find installation packages and guides for your platform here: https://nodejs.org/es/
 
-You musta have an code editor installed as well, we encourage to use Visual Studio Code. You can find installation packages and guides for your platform here: https://code.visualstudio.com/
+You must have a code editor installed as well, we encourage to use Visual Studio Code. You can find installation packages and guides for your platform here: https://code.visualstudio.com/
 
 ## Execute
 
-Once yo had cloned this repository:
+Once you had cloned this repository:
 
 - Install dependencies `$ npm install`
 
