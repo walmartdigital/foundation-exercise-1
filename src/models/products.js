@@ -35,9 +35,10 @@ const buildProducts = (linkTags, images) => {
   let products = [];
   _.forEach(linkTags, (atag, iterator) => {
     let producto = {
+      id: iterator,
       href: atag.attribs.href,
       'product-name': atag.children[0].children[0].data,
-      'product-descriptcion': atag.children[1].children[0].data,
+      'product-description': atag.children[1].children[0].data,
       'price-sale': Math.floor(Math.random() * (10000 - 1000)) + 1000,
       'src-img': images[iterator].src
     };
