@@ -15,7 +15,7 @@ jobs:
       - run:
           name: install-dependencies
           command: npm install
-      - test:
+      - run:
           name: unit-tests
           command: npm test
       - run:
